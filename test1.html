@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Upload and Detect</title>
+</head>
+<body>
+    <center><h1>Kidney Tumor Detection</h1></center>
+    
+    <!-- Input element for uploading an image -->
+    <center><input type="file" id="imageInput" accept="image/*"></center>
+
+    <br><br>
+    
+    <!-- Button to trigger image upload -->
+    <center><button onclick="uploadImage()">Upload CT Scan</button></center>
+    
+    <br><br>
+    
+    <!-- Display the uploaded image -->
+    <center><img id="uploadedImage" style="display: none; max-width: 50%; height: 40%;"></center>
+    
+    <br><br>
+    
+    <!-- Button for detecting something with the uploaded image (disabled by default) -->
+    <center><button id="detectButton" onclick="detectImage()" disabled>Detect</button></center>
+    
+    <script>
+        function uploadImage() {
+            var input = document.getElementById('imageInput');
+            var image = document.getElementById('uploadedImage');
+            var detectButton = document.getElementById('detectButton');
+            
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    image.src = e.target.result;
+                    image.style.display = 'block';
+                    detectButton.removeAttribute('disabled'); 
+                };
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        function detectImage() {
+            alert('Image detected! Rest we will do it later');
+        }
+    </script>
+</body>
+</html>
