@@ -50,7 +50,7 @@ with st.container():
 
     file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
-    model = load_model("C:/Users/cirim/PycharmProjects/Python1/model_vgg.h5")
+    model = load_model("model_vgg.h5")
 
 
     def classification(file, model):
